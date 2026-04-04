@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8cc23de51a4aa44fb9a754b3bde0c798
+guid: 98082318c999aef4e9ebc4a8e5c98d8f
 PrefabImporter:
   externalObjects: {}
   userData: 
@@ -10,5 +10,5 @@ AssetOrigin:
   productId: 288965
   packageName: Lowpoly Cowboy RIO
   packageVersion: 1.1
-  assetPath: Assets/VertexModeler/CowboyRIO/Prefab/CowboyRIO_Body.prefab
+  assetPath: Assets/VertexModeler/CowboyRIO/Prefab/CowboyRIO_Normal.prefab
   uploadId: 705475
