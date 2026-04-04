@@ -31,8 +31,10 @@ public class EnemyShooter : MonoBehaviour
     {
         if (bulletPrefab != null)
         {
-            // Create the ball at the firePoint's position
-            Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+            Vector3 fireOffset = new Vector3(0.23f, 0.04f, -.75f); //numbers may need to be changed later
+            Vector3 spawnPosition = firePoint.position + fireOffset;
+
+            Instantiate(bulletPrefab, spawnPosition, firePoint.rotation);
         }
     }
 }
