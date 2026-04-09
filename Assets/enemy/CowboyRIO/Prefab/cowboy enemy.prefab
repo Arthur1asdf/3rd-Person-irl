@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8757303779156121386}
   - component: {fileID: 3037600273762452197}
-  - component: {fileID: 4480713999548491655}
   m_Layer: 0
   m_Name: cowboy enemy
   m_TagString: Untagged
@@ -50,22 +49,6 @@ MonoBehaviour:
   bulletPrefab: {fileID: 9218297170446599746, guid: 05151a6f884c643a99c5da9317753281, type: 3}
   firePoint: {fileID: 6425997154359355401}
   fireRate: 2
---- !u!111 &4480713999548491655
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 668276585695766914}
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Animation: {fileID: 7400000, guid: 9941e5e90064c784f9fd6925f59f3f31, type: 2}
-  m_Animations: []
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_UpdateMode: 0
-  m_CullingType: 0
 --- !u!1 &6797872037892257641
 GameObject:
   m_ObjectHideFlags: 0

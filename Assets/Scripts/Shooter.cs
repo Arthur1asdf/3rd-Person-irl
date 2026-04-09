@@ -3,22 +3,48 @@ using UnityEngine;
 public class EnemyShooter : MonoBehaviour
 {
     public GameObject bulletPrefab;
-    public Transform firePoint;     // Where the ball comes out 
+    public Transform firePoint;
     public float fireRate = 2f;
 
     private float timer;
-    private Transform playerHead;
+    private Transform targetBody; // Changed from playerHead
 
     void Start()
     {
-        playerHead = Camera.main.transform;
+        FindTargetBody();
+    }
+
+    void FindTargetBody()
+    {
+        // Matches the logic your bullet uses to find the player
+        GameObject body = GameObject.Find("BodyCollider");
+        if (body != null)
+        {
+            targetBody = body.transform;
+        }
+        else
+        {
+            Debug.LogWarning("EnemyShooter: Could not find BodyCollider in the scene!");
+        }
     }
 
     void Update()
     {
-        // 1. Always look at the player
-        transform.LookAt(new Vector3(playerHead.position.x, transform.position.y, playerHead.position.z));
+        if (targetBody != null)
+        {
+            // Calculate position to look at (Cowboy's Y height to prevent tilting)
+            Vector3 targetPosition = new Vector3(targetBody.position.x, transform.position.y, targetBody.position.z);
 
+            // Rotate the Cowboy to face the BodyCollider
+            transform.LookAt(targetPosition);
+        }
+        else
+        {
+            // Retry finding the body if it was missing
+            FindTargetBody();
+        }
+
+        // Shooting logic
         timer += Time.deltaTime;
         if (timer >= fireRate)
         {
@@ -29,12 +55,9 @@ public class EnemyShooter : MonoBehaviour
 
     void Shoot()
     {
-        if (bulletPrefab != null)
+        if (bulletPrefab != null && firePoint != null)
         {
-            Vector3 fireOffset = new Vector3(0.23f, 0.04f, -.75f); //numbers may need to be changed later
-            Vector3 spawnPosition = firePoint.position + fireOffset;
-
-            Instantiate(bulletPrefab, spawnPosition, firePoint.rotation);
+            Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         }
     }
 }

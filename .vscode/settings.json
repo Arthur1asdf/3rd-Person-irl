@@ -67,5 +67,5 @@
         "*.sln": "*.csproj",
         "*.slnx": "*.csproj"
     },
-    "dotnet.defaultSolution": "3rd-Person-irl.slnx"
+    "dotnet.defaultSolution": "BigGuy.slnx"
 }
