@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 283481189948976970}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.72898, y: -0, z: 1.72898}
+  m_LocalPosition: {x: 1.01909, y: 0, z: 3.16968}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea2d39be38f3f4850881dd1014b755eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BallSpawner
-  ballPrefab: {fileID: 8702267591608313500, guid: e792b5f59bf315845ab4fbb393f59b18, type: 3}
+  ballPrefab: {fileID: 35053837828403442, guid: bce45c2391c470242b9b9f865b0e8b44, type: 3}
   maxBalls: 6
   spawnInterval: 4
   spawnRadius: 4
