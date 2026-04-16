@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public class BallSpawner : MonoBehaviour
 {
-    public GameObject ballPrefab;
+    public GameObject enemyPrefab;
     public int maxEnemy = 6;
     public float spawnInterval = 2f;
     public float spawnRadius = 3f;
@@ -34,7 +34,7 @@ public class BallSpawner : MonoBehaviour
     void TrySpawnBall()
     {
         if (spawnedBalls.Count >= maxEnemy) return;
-        if (ballPrefab == null || playerTransform == null) return;
+        if (enemyPrefab == null || playerTransform == null) return;
 
         for (int attempt = 0; attempt < maxSpawnAttempts; attempt++)
         {
@@ -64,7 +64,7 @@ public class BallSpawner : MonoBehaviour
 
             if (!tooClose)
             {
-                GameObject newBall = Instantiate(ballPrefab, spawnPos, Quaternion.identity);
+                GameObject newBall = Instantiate(enemyPrefab, spawnPos, Quaternion.identity);
                 spawnedBalls.Add(newBall);
                 return;
             }
