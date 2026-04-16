@@ -311,6 +311,14 @@ PrefabInstance:
       value: AREnemy
       objectReference: {fileID: 0}
     - target: {fileID: 381010301052400261, guid: c10171515e3484fcdbbb3fb18f11c004, type: 3}
+      propertyPath: sideRange
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 381010301052400261, guid: c10171515e3484fcdbbb3fb18f11c004, type: 3}
+      propertyPath: heightOffset
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 381010301052400261, guid: c10171515e3484fcdbbb3fb18f11c004, type: 3}
       propertyPath: playerTransform
       value: 
       objectReference: {fileID: 1240684378}
