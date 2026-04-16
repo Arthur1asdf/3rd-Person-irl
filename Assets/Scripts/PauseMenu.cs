@@ -15,14 +15,15 @@ public class PauseMenu : MonoBehaviour
     void Update()
     {
         //if side hand button is pressed
-        if (OVRInput.GetDown(OVRInput.Button.PrimaryHandTrigger) || OVRInput.GetDown(OVRInput.Button.SecondaryHandTrigger))
+        if ((OVRInput.Get(OVRInput.Button.PrimaryHandTrigger)) || (OVRInput.Get(OVRInput.Button.SecondaryHandTrigger)))
         {
             Scene scene = SceneManager.GetActiveScene();
+            Debug.Log($"Scene name: {scene.name}");
 
             //switch between pause/main scene
             if (scene.name == "PauseMenu")
             {
-                SceneManager.LoadScene("MainScene");
+                SceneManager.LoadScene("newscene");
             }
             else
             {

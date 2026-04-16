@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-	package="com.JoshSawyer.UVCProject">
+	package="com.Guzzlers.ThirdPersonIrl">
 
 	<uses-feature android:name="android.hardware.usb.host" />
 	<uses-feature android:name="android.hardware.vr.headtracking" android:required="true" />
@@ -14,7 +14,7 @@
 		<activity
             android:name="com.unity3d.player.UnityPlayerGameActivity"
             android:exported="true"
-            android:theme="@style/UnityTheme">
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen">
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN" />
 				<category android:name="android.intent.category.LAUNCHER" />
