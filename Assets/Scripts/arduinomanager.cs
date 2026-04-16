@@ -5,60 +5,52 @@ using System.Collections;
 public class ArduinoManager : MonoBehaviour
 {
     public static ArduinoManager Instance;
-    private string esp32IP = "192.168.4.1";
 
-    // --- INVINCIBILITY SETTINGS ---
-    private bool isInvincible = false;
-    [SerializeField] private float invincibilityDuration = 2.0f;
+    [SerializeField] private string esp32IP = "192.168.4.1";
+    [SerializeField] private float hitCooldown = 2f;
+
+    private float lastHitTime = -999f;
 
     void Awake()
     {
-        if (Instance == null) Instance = this;
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void SendHit(string limbName)
     {
-        // If we are currently in the 2-second cooldown, ignore the hit
-        if (isInvincible)
+        if (Time.time - lastHitTime < hitCooldown)
         {
-            Debug.Log("Hit ignored: Player is currently invincible.");
+            Debug.Log("Hit ignored due to global cooldown");
             return;
         }
 
-        // Start the cooldown and send the data
-        StartCoroutine(HitSequence(limbName));
-    }
-
-    IEnumerator HitSequence(string limbName)
-    {
-        isInvincible = true; // Lock the gate
-        Debug.Log("HIT REGISTERED: Starting 2s cooldown.");
-
-        // Send the web request to the ESP32
+        lastHitTime = Time.time;
         StartCoroutine(PostHit(limbName));
-
-        // Wait for the duration
-        yield return new WaitForSeconds(invincibilityDuration);
-
-        isInvincible = false; // Unlock the gate
-        Debug.Log("Invincibility worn off. Ready for next hit.");
     }
 
     IEnumerator PostHit(string limbName)
     {
-        WWWForm form = new WWWForm();
-        form.AddField("limb", limbName);
+        string url = "http://" + esp32IP + "/hit?zone=" + UnityWebRequest.EscapeURL(limbName);
 
-        using (UnityWebRequest www = UnityWebRequest.Post("http://" + esp32IP + "/hit", form))
+        UnityWebRequest www = UnityWebRequest.Get(url);
+
+        yield return www.SendWebRequest();
+
+        if (www.result != UnityWebRequest.Result.Success)
         {
-            // We use a timeout so Unity doesn't hang if the ESP32 is off
-            www.timeout = 1;
-            yield return www.SendWebRequest();
-
-            if (www.result != UnityWebRequest.Result.Success)
-            {
-                Debug.LogWarning("ESP32 Connection Failed: " + www.error);
-            }
+            Debug.Log("Unity Error: " + www.error);
+        }
+        else
+        {
+            Debug.Log("Unity Success: Sent " + limbName);
+            Debug.Log("ESP32 Response: " + www.downloadHandler.text);
         }
     }
 }
