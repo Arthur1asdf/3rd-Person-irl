@@ -17,6 +17,13 @@
 .DS_Store
 Thumbs.db
 
+# JetBrains / IntelliJ / Rider
+.idea/
+
+# Unity crash / memory dump files
+*.blob
+mono_crash.mem*
+
 #blender
 
 *.blend1

@@ -310,6 +310,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: AREnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 381010301052400261, guid: c10171515e3484fcdbbb3fb18f11c004, type: 3}
+      propertyPath: playerTransform
+      value: 
+      objectReference: {fileID: 1240684378}
     - target: {fileID: 5947909457992827833, guid: c10171515e3484fcdbbb3fb18f11c004, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.01909
@@ -468,6 +472,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1240684378 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4497344807962306983, guid: 8113b8beea4844aaabd24deeb84b7e56, type: 3}
+  m_PrefabInstance: {fileID: 4192282698953922003}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1299512337
 GameObject:
   m_ObjectHideFlags: 0

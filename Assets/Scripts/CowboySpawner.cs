@@ -10,14 +10,7 @@ public class BallSpawner : MonoBehaviour
 
     private List<GameObject> spawnedBalls = new List<GameObject>();
     private float timer;
-    private Transform playerTransform;
-
-    void Start()
-    {
-        // We find the CenterEyeAnchor automatically
-        Camera cam = Camera.main;
-        if (cam != null) playerTransform = cam.transform;
-    }
+    [SerializeField] private Transform playerTransform;
 
     void Update()
     {
@@ -42,9 +35,7 @@ public class BallSpawner : MonoBehaviour
         Vector2 randomCircle = Random.insideUnitCircle.normalized * spawnRadius;
         Vector3 spawnPos = playerTransform.position + new Vector3(randomCircle.x, 0, randomCircle.y);
 
-        // Set height to roughly chest level (1.2 meters)
-        float randomHeight = Random.Range(0.5f, 1.5f);
-        spawnPos.y = randomHeight;
+        spawnPos.y = playerTransform.position.y;
 
         GameObject newBall = Instantiate(ballPrefab, spawnPos, Quaternion.identity);
         spawnedBalls.Add(newBall);
