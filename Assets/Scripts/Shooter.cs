@@ -55,9 +55,11 @@ public class EnemyShooter : MonoBehaviour
 
     void Shoot()
     {
+        Vector3 bulletOffset = new Vector3(-0.15f, 0.03f, .7f);
+        Vector3 spawnPosition = firePoint.TransformPoint(bulletOffset);
         if (bulletPrefab != null && firePoint != null)
         {
-            Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+            Instantiate(bulletPrefab, spawnPosition, firePoint.rotation);
         }
     }
 }
