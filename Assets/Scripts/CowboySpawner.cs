@@ -11,6 +11,9 @@ public class BallSpawner : MonoBehaviour
     private List<GameObject> spawnedBalls = new List<GameObject>();
     private float timer;
     [SerializeField] private Transform playerTransform;
+    [SerializeField] private float heightOffset = 0.3f;
+    [SerializeField] private float forwardDistance = 3f;
+    [SerializeField] private float sideRange = 1.5f;
 
     void Update()
     {
@@ -32,10 +35,18 @@ public class BallSpawner : MonoBehaviour
         if (ballPrefab == null || playerTransform == null) return;
 
         // Generate a random position in a circle around the player
-        Vector2 randomCircle = Random.insideUnitCircle.normalized * spawnRadius;
-        Vector3 spawnPos = playerTransform.position + new Vector3(randomCircle.x, 0, randomCircle.y);
+        //Vector2 randomCircle = Random.insideUnitCircle.normalized * spawnRadius;
+        //Vector3 spawnPos = playerTransform.position + new Vector3(randomCircle.x, 0, randomCircle.y);
+        
+        float forwardDistance = spawnRadius;
+        float sideOffset = Random.Range(-sideRange, sideRange);
 
-        spawnPos.y = playerTransform.position.y;
+        Vector3 spawnPos =
+            playerTransform.position
+            + playerTransform.forward * forwardDistance
+            + playerTransform.right * sideOffset;
+
+        spawnPos.y = playerTransform.position.y - heightOffset;
 
         GameObject newBall = Instantiate(ballPrefab, spawnPos, Quaternion.identity);
         spawnedBalls.Add(newBall);
