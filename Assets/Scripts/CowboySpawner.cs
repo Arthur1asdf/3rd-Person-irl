@@ -45,7 +45,8 @@ public class BallSpawner : MonoBehaviour
                 + playerTransform.forward * forwardDistance
                 + playerTransform.right * sideOffset;
 
-            spawnPos.y = playerTransform.position.y - heightOffset;
+            //spawnPos.y = playerTransform.position.y - heightOffset;
+            spawnPos.y = -3.0f;
 
             bool tooClose = false;
 

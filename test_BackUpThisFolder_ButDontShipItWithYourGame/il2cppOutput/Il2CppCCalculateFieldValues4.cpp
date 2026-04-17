@@ -22175,13 +22175,18 @@ struct BallBullet_tB1004A3B6561B8D4B50D017272D2C023BEE3107E  : public MonoBehavi
 };
 struct BallSpawner_t222C95CC5F20DE57484D982FDB16C457935D38FE  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
 {
-	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___ballPrefab;
-	int32_t ___maxBalls;
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___enemyPrefab;
+	int32_t ___maxEnemy;
 	float ___spawnInterval;
 	float ___spawnRadius;
 	List_1_tB951CE80B58D1BF9650862451D8DAD8C231F207B* ___spawnedBalls;
 	float ___timer;
 	Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* ___playerTransform;
+	float ___heightOffset;
+	float ___forwardDistance;
+	float ___sideRange;
+	float ___minSpawnDistance;
+	int32_t ___maxSpawnAttempts;
 };
 struct CallbackRunner_t11E18480966FFD791746CC78D266A284502D1B4E  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
 {
@@ -23460,6 +23465,7 @@ struct ValveIndexControllerProfile_tB00771C9F4DA589B16B2D9C8488CDBFF1ACB169B  : 
 struct VerticalBodyFollow_t685433A47AF4A97F75FDE75A02668E47E35CCFAB  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
 {
 	Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* ___headCamera;
+	float ___bodyHeightOffset;
 };
 struct VisualizeEnvRaycast_t19F4697EFAAC36480815B16C18D8930A2FA66DB0  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
 {
@@ -25905,7 +25911,7 @@ struct U3CU3Ec_t412446423AF63CC7F415C3FB01AF9E32425F768B_StaticFields
 struct U3CU3Ec_t18F744B6923E15B34406FDD70716C95B6EAA6A2F_StaticFields
 {
 	U3CU3Ec_t18F744B6923E15B34406FDD70716C95B6EAA6A2F* ___U3CU3E9;
-	Predicate_1_t0729156EF7F8B2C367BA6C92C091D97CDEC0B53F* ___U3CU3E9__8_0;
+	Predicate_1_t0729156EF7F8B2C367BA6C92C091D97CDEC0B53F* ___U3CU3E9__12_0;
 };
 struct U3CU3Ec_tB75BA976B4E99C70F9D85A7B7BD72688F0AD75F4_StaticFields
 {
@@ -33601,10 +33607,10 @@ IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable14986[2] =
 	static_cast<int32_t>(offsetof(BallBullet_tB1004A3B6561B8D4B50D017272D2C023BEE3107E, ___speed)),static_cast<int32_t>(offsetof(BallBullet_tB1004A3B6561B8D4B50D017272D2C023BEE3107E, ___targetDirection)),};
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable14988[2] = 
 {
-	static_cast<int32_t>(offsetof(U3CU3Ec_t18F744B6923E15B34406FDD70716C95B6EAA6A2F_StaticFields, ___U3CU3E9)),static_cast<int32_t>(offsetof(U3CU3Ec_t18F744B6923E15B34406FDD70716C95B6EAA6A2F_StaticFields, ___U3CU3E9__8_0)),};
-IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable14989[7] = 
+	static_cast<int32_t>(offsetof(U3CU3Ec_t18F744B6923E15B34406FDD70716C95B6EAA6A2F_StaticFields, ___U3CU3E9)),static_cast<int32_t>(offsetof(U3CU3Ec_t18F744B6923E15B34406FDD70716C95B6EAA6A2F_StaticFields, ___U3CU3E9__12_0)),};
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable14989[12] = 
 {
-	static_cast<int32_t>(offsetof(BallSpawner_t222C95CC5F20DE57484D982FDB16C457935D38FE, ___ballPrefab)),static_cast<int32_t>(offsetof(BallSpawner_t222C95CC5F20DE57484D982FDB16C457935D38FE, ___maxBalls)),static_cast<int32_t>(offsetof(BallSpawner_t222C95CC5F20DE57484D982FDB16C457935D38FE, ___spawnInterval)),static_cast<int32_t>(offsetof(BallSpawner_t222C95CC5F20DE57484D982FDB16C457935D38FE, ___spawnRadius)),static_cast<int32_t>(offsetof(BallSpawner_t222C95CC5F20DE57484D982FDB16C457935D38FE, ___spawnedBalls)),static_cast<int32_t>(offsetof(BallSpawner_t222C95CC5F20DE57484D982FDB16C457935D38FE, ___timer)),static_cast<int32_t>(offsetof(BallSpawner_t222C95CC5F20DE57484D982FDB16C457935D38FE, ___playerTransform)),};
+	static_cast<int32_t>(offsetof(BallSpawner_t222C95CC5F20DE57484D982FDB16C457935D38FE, ___enemyPrefab)),static_cast<int32_t>(offsetof(BallSpawner_t222C95CC5F20DE57484D982FDB16C457935D38FE, ___maxEnemy)),static_cast<int32_t>(offsetof(BallSpawner_t222C95CC5F20DE57484D982FDB16C457935D38FE, ___spawnInterval)),static_cast<int32_t>(offsetof(BallSpawner_t222C95CC5F20DE57484D982FDB16C457935D38FE, ___spawnRadius)),static_cast<int32_t>(offsetof(BallSpawner_t222C95CC5F20DE57484D982FDB16C457935D38FE, ___spawnedBalls)),static_cast<int32_t>(offsetof(BallSpawner_t222C95CC5F20DE57484D982FDB16C457935D38FE, ___timer)),static_cast<int32_t>(offsetof(BallSpawner_t222C95CC5F20DE57484D982FDB16C457935D38FE, ___playerTransform)),static_cast<int32_t>(offsetof(BallSpawner_t222C95CC5F20DE57484D982FDB16C457935D38FE, ___heightOffset)),static_cast<int32_t>(offsetof(BallSpawner_t222C95CC5F20DE57484D982FDB16C457935D38FE, ___forwardDistance)),static_cast<int32_t>(offsetof(BallSpawner_t222C95CC5F20DE57484D982FDB16C457935D38FE, ___sideRange)),static_cast<int32_t>(offsetof(BallSpawner_t222C95CC5F20DE57484D982FDB16C457935D38FE, ___minSpawnDistance)),static_cast<int32_t>(offsetof(BallSpawner_t222C95CC5F20DE57484D982FDB16C457935D38FE, ___maxSpawnAttempts)),};
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable14990[2] = 
 {
 	static_cast<int32_t>(offsetof(leftControllerShoot_t8F6FBB7BC29CC8106632ECC0A07570E7DC0616D0, ___prefab)),static_cast<int32_t>(offsetof(leftControllerShoot_t8F6FBB7BC29CC8106632ECC0A07570E7DC0616D0, ___spawnSpeed)),};
@@ -33617,9 +33623,9 @@ IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable14994[5] =
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable14995[2] = 
 {
 	static_cast<int32_t>(offsetof(UnityMainThreadDispatcher_tCBFCAE330E237A494F8AD7303087FCEB5A9B03EE_StaticFields, ___instance)),static_cast<int32_t>(offsetof(UnityMainThreadDispatcher_tCBFCAE330E237A494F8AD7303087FCEB5A9B03EE, ___executionQueue)),};
-IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable14996[1] = 
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable14996[2] = 
 {
-	static_cast<int32_t>(offsetof(VerticalBodyFollow_t685433A47AF4A97F75FDE75A02668E47E35CCFAB, ___headCamera)),};
+	static_cast<int32_t>(offsetof(VerticalBodyFollow_t685433A47AF4A97F75FDE75A02668E47E35CCFAB, ___headCamera)),static_cast<int32_t>(offsetof(VerticalBodyFollow_t685433A47AF4A97F75FDE75A02668E47E35CCFAB, ___bodyHeightOffset)),};
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable14997[4] = 
 {
 	static_cast<int32_t>(offsetof(Section_t50C894D0A717C2368EBAAE5477D4E8626D0B5401, ___heading)),static_cast<int32_t>(offsetof(Section_t50C894D0A717C2368EBAAE5477D4E8626D0B5401, ___text)),static_cast<int32_t>(offsetof(Section_t50C894D0A717C2368EBAAE5477D4E8626D0B5401, ___linkText)),static_cast<int32_t>(offsetof(Section_t50C894D0A717C2368EBAAE5477D4E8626D0B5401, ___url)),};
