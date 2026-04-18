@@ -12,7 +12,7 @@ Using a custom rig and webcam setup, the player is shown from a third-person poi
 
 ---
 
-## How It Works
+## How It Works (Hardware)
 
 [Unity Game]
 
@@ -35,6 +35,8 @@ Using a custom rig and webcam setup, the player is shown from a third-person poi
 ↓
 
 [Player Feedback]
+
+## How It Works (Unity)
 
 1. Enemies are spawned into the game using a cowboy spawner object  
 2. The enemies can attack the player, and the player can shoot back  
