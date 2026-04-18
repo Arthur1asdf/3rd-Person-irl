@@ -1,4 +1,4 @@
-# Real-World Third Person AR Game with Haptic Feedback
+# 3rd person irl
 
 A semester-long project combining Unity and hardware to create an augmented reality game with real physical feedback.
 
@@ -15,7 +15,9 @@ Using a custom rig and webcam setup, the player is shown from a third-person poi
 ## How It Works
 
 [Unity Game]
-     ↓ (WebSockets)
+
+↓ (WebSockets)
+     
 [ESP32]
      ↓ (Serial / Signal)
 [Arduino Uno]
