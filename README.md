@@ -1,4 +1,4 @@
-# Real-World Third Person AR Game with Haptic Feedback
+# 3rd person irl
 
 A semester-long project combining Unity, computer vision, and embedded systems to create an immersive augmented reality game with real physical feedback.
 
