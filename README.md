@@ -1,4 +1,4 @@
-# 3rd person irl
+# 3rd Person IRL
 
 A semester-long project combining Unity and hardware to create an augmented reality game with real physical feedback.
 
@@ -19,13 +19,21 @@ Using a custom rig and webcam setup, the player is shown from a third-person poi
 ↓ (WebSockets)
      
 [ESP32]
-     ↓ (Serial / Signal)
+
+↓ (Serial / Signal)
+     
 [Arduino Uno]
-     ↓
+
+↓
+     
 [Relay Module]
-     ↓
+
+↓
+
 [TENS Unit]
-     ↓
+
+↓
+
 [Player Feedback]
 
 1. Enemies are spawned into the game using a cowboy spawner object  
