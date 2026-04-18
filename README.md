@@ -1,14 +1,14 @@
-# 3rd person irl
+# Real-World Third Person AR Game with Haptic Feedback
 
-A semester-long project combining Unity, computer vision, and embedded systems to create an immersive augmented reality game with real physical feedback.
+A semester-long project combining Unity and hardware to create an augmented reality game with real physical feedback.
 
 ---
 
 ## Overview
 
-This project turns your real environment into a third-person AR battlefield.
+This project turns a real environment into a third-person AR game experience.
 
-Using a custom camera rig, players see themselves from a third-person perspective while interacting with virtual enemies spawned into their physical space. The system goes beyond visuals — players physically feel in-game damage through haptic feedback.
+Using a custom rig and webcam setup, the player is shown from a third-person point of view while virtual enemies are spawned into the scene. These enemies can shoot at the player, and the player can shoot back. What makes the project stand out is the haptic feedback system that connects in-game hits to real-world physical feedback.
 
 ---
 
@@ -17,38 +17,46 @@ Using a custom camera rig, players see themselves from a third-person perspectiv
 [Unity Game]
      ↓ (WebSockets)
 [ESP32]
-     ↓ (Serial)
+     ↓ (Serial / Signal)
 [Arduino Uno]
-     ↓ (Relay Module)
+     ↓
+[Relay Module]
+     ↓
 [TENS Unit]
      ↓
-[Player (Physical Feedback)]
+[Player Feedback]
 
-1. The Unity game detects when the player is hit  
-2. A WebSocket message is sent to the ESP32  
-3. ESP32 forwards the signal to the Arduino Uno  
-4. Arduino activates a relay corresponding to a body part  
-5. The relay triggers the TENS unit  
-6. The player feels the hit in real life  
+1. Enemies are spawned into the game using a cowboy spawner object  
+2. The enemies can attack the player, and the player can shoot back  
+3. Collision objects on the player detect when a hit happens  
+4. When a collider is hit, it sends that information to the Arduino manager in Unity  
+5. The Arduino manager sends the data to the ESP32  
+6. The ESP32 sends a signal to the Arduino Uno  
+7. The Arduino turns on or off specific relays based on the signal it receives  
+8. The relay module triggers the correct TENS pad  
+9. The player feels physical feedback based on where they were hit  
 
 ---
 
 ## Features
 
 - Third-Person Real-World View  
-  Custom rig + webcam provides a live third-person perspective  
+  A custom rig and webcam provide a live third-person perspective  
 
 - Augmented Reality Gameplay  
-  Enemies spawn into the real world and interact with the player  
+  Virtual enemies are spawned into the player's real environment  
 
-- Interactive Combat System  
-  Players can shoot and be attacked in real time  
+- Combat System  
+  Enemies can shoot at the player, and the player can shoot back  
+
+- Hit Detection with Colliders  
+  Player colliders detect which body part was hit and pass that information through the system  
 
 - Real Haptic Feedback  
-  Physical stimulation is triggered based on in-game events  
+  In-game hits are translated into physical feedback through the TENS setup  
 
-- Low-Latency Communication  
-  WebSockets used for real-time data transfer  
+- Real-Time Communication  
+  WebSockets are used to send data from the Unity game to the ESP32  
 
 ---
 
@@ -56,14 +64,15 @@ Using a custom camera rig, players see themselves from a third-person perspectiv
 
 **Software**
 - Unity (C#)
-- WebSockets (real-time communication)
+- WebSockets  
 
-**Hardware (used in full system)**
-- ESP32 (WiFi communication)
-- Arduino Uno (control logic)
-- Relay Module (safe switching)
-- TENS Unit (haptic feedback)
-- Webcam (third-person tracking)
+**Hardware (used in the full system)**
+- ESP32  
+- Arduino Uno  
+- Relay module  
+- TENS unit  
+- Webcam  
+- Custom rig  
 
 ---
 
@@ -72,50 +81,12 @@ Using a custom camera rig, players see themselves from a third-person perspectiv
 Safety Notice  
 This project involves a modified TENS unit. Use caution when working with electrical stimulation devices. Ensure proper isolation using relays and never directly connect microcontrollers to the TENS output.
 
-- TENS wires are routed through a relay module  
-- Arduino controls relays to safely trigger specific pads  
-- Each relay corresponds to a limb (left arm, right arm, etc.)  
-
----
-
-## Demo
-
-Add videos or GIFs here
-
----
-
-## Challenges
-
-- Maintaining low latency between game events and physical feedback  
-- Designing a safe interface between low-voltage microcontrollers and TENS output  
-- Synchronizing real-world positioning with virtual interactions  
-- Debugging multi-device communication (Unity ↔ ESP32 ↔ Arduino)  
-
----
-
-## Future Improvements
-
-- Improve tracking accuracy and positioning  
-- Reduce latency in communication pipeline  
-- Expand to full-body feedback system  
-- Add multiplayer or cooperative gameplay  
-- Replace webcam with more advanced tracking (e.g., depth sensors)  
-
----
-
-## What I Learned
-
-- Real-time system design (WebSockets vs HTTP)  
-- Hardware-software integration  
-- Embedded systems communication  
-- Safety considerations in physical computing  
-- Building interactive AR experiences  
-
----
-
-## Repository Structure
-
-/unity-game → Unity project files
+- Unity sends hit data through the Arduino manager  
+- ESP32 receives the data over WiFi  
+- ESP32 forwards signals to the Arduino  
+- Arduino controls which relays are activated  
+- Relays safely trigger the corresponding TENS pads  
+- Each relay corresponds to a different body region  
 
 ---
 
