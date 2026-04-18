@@ -6,9 +6,11 @@ A semester-long project combining Unity and hardware to create an augmented real
 
 ## Overview
 
-This project turns a real environment into a third-person AR game experience.
+This project turns a real environment into a third-person AR shooter.
 
-Using a custom rig and webcam setup, the player is shown from a third-person point of view while virtual enemies are spawned into the scene. These enemies can shoot at the player, and the player can shoot back. What makes the project stand out is the haptic feedback system that connects in-game hits to real-world physical feedback.
+Using a custom rig and webcam setup, the player sees themselves from a live third-person point of view while virtual enemies are spawned into the scene. The enemies can shoot at you, and you can shoot back in real time.
+
+The part that makes the project stand out is the haptic system. When a specific body collider gets hit in the game, that hit data is sent through the hardware pipeline and triggers a TENS pad on the matching body area. Instead of just showing damage on screen, the game gives you a sharp muscle contraction that feels almost like getting shot, making the experience much more intense and immersive.
 
 ---
 
