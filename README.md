@@ -106,7 +106,6 @@ This project involves a modified TENS unit. Use caution when working with electr
 
 ## Note
 
-I forgot to include the Arduino and ESP32 code in this repo. If you're interested or want to see the full system, feel free to reach out:
-
+I forgot to include the Arduino and ESP32 code in this repo. If you're interested or want to see the full system, feel free to reach out my discord or github:
+Gitub: Arthur1asdf
 Discord: huterrat  
-Email: n13arthurteng@gmail.com
